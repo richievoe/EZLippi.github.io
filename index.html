@@ -1,79 +1,116 @@
----
-layout: default
-title: "首页：Home"
----
-<!-- 
-<h1 class="page-header">
-  <small>
-    {{ site.description }}
-  </small>
-</h1>
--->
-<!-- Loop output paged posts -->
-<div id="index" class="row">
-    <div class="post-area">
-     	 <div class="post-list-body">
-        <div post-cate="All">
-        <ul class="posts">
-	{% for post in paginator.posts %}
-	<li>	
-	<h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
-	<span class="date">{{ post.date | date_to_string }}</span>
-	
-	<hr>
-	<p>{% if post.excerpt.size > 32 %}{{ post.excerpt }}{% else %}{{ post.content | strip_html | strip_newlines | truncate: 160 }}{% endif %}</p>
-		<p> <a href="{{ post.url }}"><span >阅读全文 &raquo; </span></a></p>
-	<hr>
-	</li>
-	{% endfor %}
-	</ul>
-	<!-- Pager indicator -->
-	<ul class="pager">
-	  {% if paginator.previous_page %} {% if paginator.previous_page == 1 %}
-	  <li class="previous">
-	    <a href="{{ site.url }}/">
-	      &larr; Older
-	    </a>
-	  </li>
-	  {% else %}
-	  <li class="previous">
-	    <a href="{{ site.url }}/page{{ paginator.previous_page }}">
-	      &larr; Older
-	    </a>
-	  </li>
-	  {% endif %} {% endif %} {% if paginator.next_page %}
-	  <li class="next">
-	    <a href="{{ site.url }}/page{{ paginator.next_page }}">
-	      Newer &rarr;
-	    </a>
-	  </li>
-	  {% endif %}
-	</ul>
-	</div>
-	
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>theme by richievoe</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">theme</h1>
+      <h2 class="project-tagline">这是我的个人网站的源码</h2>
+      <a href="https://github.com/richievoe/EZ_theme" class="btn">View on GitHub</a>
+      <a href="https://github.com/richievoe/EZ_theme/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/richievoe/EZ_theme/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
 
-	 
-       {% for category in site.categories %}
-	<div post-cate="{{category | first}}">
+    <section class="main-content">
+      <h3>
+<a id="博客地址" class="anchor" href="#%E5%8D%9A%E5%AE%A2%E5%9C%B0%E5%9D%80" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>博客地址</h3>
 
-          <ul class="posts">
-            {% for posts in category  %}
-              {% for post in posts %}
-                {% if post.url %}
-		<li>
-                  <a href="{{ post.url }}" class="post-list-item">
-                    <h2>{{ post.title }}</h2>
-                    <span class="date">{{ post.date | date: "%b %-d, %Y" }}</span>
-                  </a>
-		</li>
-                {% endif %}
-              {% endfor %}
-            {% endfor %}
-          </ul>
-	</div>
-        {% endfor %}
-	
-	 </div>
+<p>Github托管的是以前Jekyll版本的源码，现在博客用Hexo重新搭建</p>
 
-</div>
-</div>
+<h4>
+<a id="预览" class="anchor" href="#%E9%A2%84%E8%A7%88" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>预览</h4>
+
+<ul>
+<li>Jekyll版本：EZLippi.github.io</li>
+<li>Hexo 版本： <a href="http://www.ezlippi.com">www.ezlippi.com</a>
+</li>
+<li>Hexo版本源码：<a href="https://coding.net/u/ezlippi/p/ezlippi/git/tree/coding-pages/">https://coding.net/u/ezlippi/p/ezlippi/git/tree/coding-pages/</a>
+</li>
+</ul>
+
+<h3>
+<a id="使用jekyll版本作为博客模板仅需如下几步" class="anchor" href="#%E4%BD%BF%E7%94%A8jekyll%E7%89%88%E6%9C%AC%E4%BD%9C%E4%B8%BA%E5%8D%9A%E5%AE%A2%E6%A8%A1%E6%9D%BF%E4%BB%85%E9%9C%80%E5%A6%82%E4%B8%8B%E5%87%A0%E6%AD%A5" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>使用Jekyll版本作为博客模板，仅需如下几步：</h3>
+
+<ol>
+<li>首先Fork或Download一份本项目代码。 </li>
+<li>修改_config.yaml及about.md文件，以变更个人信息。 </li>
+<li>修改_include目录下相关文件，以配置网站统计(analytics.html)，网友评论(comment.html)，右侧栏目(categories.html),热门文章(hot.html),友情链接(links.html)等。 </li>
+<li>修改CNAME文件，以绑定自己的域名。 </li>
+<li>删除_posts下文章，换成你自己的。 </li>
+<li>去谷歌自定义搜索新建一个你的搜索引擎，把你的Id替换根目录下search.html我的ID</li>
+<li>
+<p>最后，push到你自己的博客Repo~ </p>
+
+<p><em>^_^</em>如果愿意，Star本项目一个吧~ </p>
+</li>
+</ol>
+
+<h3>
+<a id="本项目使用了" class="anchor" href="#%E6%9C%AC%E9%A1%B9%E7%9B%AE%E4%BD%BF%E7%94%A8%E4%BA%86" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>本项目使用了</h3>
+
+<ol>
+<li>CNZZ的网站统计服务，官网：<a href="http://cnzz.com">http://cnzz.com</a> </li>
+<li>多说的评论功能，官网:<a href="http://duoshuo.com/">http://duoshuo.com/</a>
+</li>
+</ol>
+
+<h3>
+<a id="联系方式" class="anchor" href="#%E8%81%94%E7%B3%BB%E6%96%B9%E5%BC%8F" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>联系方式</h3>
+
+<p>联系方式： Email(<a href="mailto:ouyanglip@gmail.com">ouyanglip@gmail.com</a>) </p>
+
+<h3>
+<a id="使用本项目作模板的博客链接" class="anchor" href="#%E4%BD%BF%E7%94%A8%E6%9C%AC%E9%A1%B9%E7%9B%AE%E4%BD%9C%E6%A8%A1%E6%9D%BF%E7%9A%84%E5%8D%9A%E5%AE%A2%E9%93%BE%E6%8E%A5" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>使用本项目作模板的博客链接</h3>
+
+<ul>
+<li>
+<a href="http://www.94geek.com">http://www.94geek.com</a><br>
+</li>
+<li>
+<a href="http://www.haidaoxiaofei.me">http://www.haidaoxiaofei.me</a><br>
+</li>
+<li>
+<a href="http://www.malphi.net">http://www.malphi.net</a><br>
+</li>
+<li>
+<a href="http://happyaround.com">http://happyaround.com</a><br>
+</li>
+<li>
+<a href="http://tencentlocation.github.io">http://tencentlocation.github.io</a><br>
+</li>
+<li>
+<a href="http://wtaps.github.io">http://wtaps.github.io</a> </li>
+<li><a href="http://maoshu.cc">http://maoshu.cc</a></li>
+<li><a href="http://x-carto.com/">http://x-carto.com/</a></li>
+<li>(你的位置)<br>
+</li>
+</ul>
+
+<h2>
+<a id="2016-02-25更新" class="anchor" href="#2016-02-25%E6%9B%B4%E6%96%B0" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2016-02-25更新</h2>
+
+<ul>
+<li>本博客由Jekyl迁移到Hexo,博客地址<a href="www.ezlippi.com">ezlippi</a>,源码托管在了国内的<a href="https://coding.net/u/ezlippi/p/ezlippi/git/tree/coding-pages/">Coding.net</a>
+</li>
+<li>使用Hexo搭建个人博客具体教程参考<a href="http://www.ezlippi.com/blog/2016/02/jekyll-to-hexo.html">Jekyll迁移到Hexo建立个人博客</a>
+# </li>
+</ul>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/richievoe/EZ_theme">theme</a> is maintained by <a href="https://github.com/richievoe">richievoe</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
